@@ -35,7 +35,7 @@ copy .env.example .env
 
 ```text
 OLLAMA_URL=http://127.0.0.1:11434
-OLLAMA_MODEL=llama2
+OLLAMA_MODEL=kimi-k2.5:cloud
 ```
 
 ## Run
@@ -45,6 +45,8 @@ streamlit run app.py
 ```
 
 Then open the Streamlit app in your browser.
+
+![alt text](App.png)
 
 ## Usage
 
