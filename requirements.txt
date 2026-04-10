@@ -1,0 +1,8 @@
+streamlit
+python-dotenv
+pandas
+pypdf
+sentence-transformers
+openpyxl
+numpy
+requests
