@@ -58,7 +58,7 @@ def main():
     )
 
     ollama_url = st.sidebar.text_input(
-        "Ollama URL", value=os.getenv("OLLAMA_URL", "http://127.0.0.1:11434")
+        "Ollama URL", value=os.getenv("OLLAMA_URL", "http://127.0.0.1:14488")
     )
     ollama_model = st.sidebar.text_input(
         "Ollama Model", value=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL)
