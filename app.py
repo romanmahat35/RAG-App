@@ -16,7 +16,7 @@ from utils import (
 
 load_dotenv()
 
-DEFAULT_OLLAMA_MODEL = "llama2"
+DEFAULT_OLLAMA_MODEL = "kimi-k2.5:cloud"
 
 def build_prompt(question: str, retrieved_chunks: list[tuple[str, float]]) -> str:
     context = "\n\n".join([chunk for chunk, _ in retrieved_chunks])
@@ -40,8 +40,8 @@ def answer_question(
             {"role": "system", "content": "You are a helpful assistant specializing in answering user questions from uploaded documents."},
             {"role": "user", "content": prompt},
         ],
-        "temperature": 0.2,
-        "max_tokens": 450,
+        "temperature": 0.9,
+        "max_tokens": 10000,
     }
     response = requests.post(f"{ollama_url}/v1/chat/completions", json=payload)
     response.raise_for_status()
@@ -58,7 +58,7 @@ def main():
     )
 
     ollama_url = st.sidebar.text_input(
-        "Ollama URL", value=os.getenv("OLLAMA_URL", "http://127.0.0.1:14488")
+        "Ollama URL", value=os.getenv("OLLAMA_URL", "http://localhost:11434")
     )
     ollama_model = st.sidebar.text_input(
         "Ollama Model", value=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL)
